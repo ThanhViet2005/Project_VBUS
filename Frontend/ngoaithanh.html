@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VBUS - Ngoại Thành</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body class="antialiased bg-gray-50 text-gray-800 font-sans">
+    <header class="max-w-6xl mx-auto px-6 py-6 grid grid-cols-3 items-center">
+      <div class="flex items-center gap-6">
+        <a href="/" class="text-2xl font-extrabold text-primary">VBUS</a>
+      </div>
+
+      <nav class="hidden md:flex justify-center items-center gap-8 text-sm text-gray-600 md:flex-nowrap">
+        <a class="hover:text-primary whitespace-nowrap" href="#">Tuyến ngoại thành</a>
+        <a class="hover:text-primary whitespace-nowrap" href="noithanh.html">Tuyến nội thành</a>
+        <a class="hover:text-primary whitespace-nowrap" href="#">Tra cứu vé</a>
+        <a class="hover:text-primary whitespace-nowrap" href="#">Chính sách</a>
+        <a class="hover:text-primary whitespace-nowrap" href="#">Đánh giá</a>
+      </nav>
+
+      <div class="flex justify-end items-center">
+        <a href="#" id="authBtn" class="px-4 py-2 rounded-full bg-primary text-white text-sm">Đăng ký / Đăng nhập</a>
+      </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6">
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mt-6">
+        <!-- Left: Heading + search -->
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
+            Hành trình <span class="text-primary">Vươn</span>
+            <br>
+            <span class="text-primary">Tầm</span> Khám phá
+          </h1>
+          <p class="mt-4 text-gray-500 max-w-xl">Trải nghiệm dịch vụ xe khách cao cấp với mạng lưới tuyến ngoại thành rộng khắp. Chuyến đi an toàn, hiện đại và chuẩn giờ.</p>
+
+          <div class="mt-8">
+            <form class="flex flex-col sm:flex-row gap-4 items-center">
+              <div class="flex-1">
+                <label class="sr-only">Điểm đi</label>
+                <div class="search-input flex items-center p-3 gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-5M3 13a8 8 0 1116 0 8 8 0 01-16 0z" /></svg>
+                  <input placeholder="TP. Hồ Chí Minh" class="w-full border-0 outline-none bg-transparent" />
+                </div>
+              </div>
+
+              <div class="flex-1">
+                <label class="sr-only">Điểm đến</label>
+                <div class="search-input flex items-center p-3 gap-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-5M3 13a8 8 0 1116 0 8 8 0 01-16 0z" /></svg>
+                  <input placeholder="Đà Lạt" class="w-full border-0 outline-none bg-transparent" />
+                </div>
+              </div>
+
+              <button type="submit" class="px-6 py-3 rounded-lg text-white badge-cta">Tìm chuyến</button>
+            </form>
+          </div>
+
+          
+        </div>
+
+        <!-- Right: stacked images/cards -->
+        <div class="relative flex justify-center md:justify-end items-start">
+            <div class="hero-stack z-20">
+              <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c0?w=1200&q=80" class="hero-img" />
+            </div>
+
+            <div class="stack-2 z-30">
+              <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?w=800&q=80" class="hero-img" />
+            </div>
+
+            <div class="stack-3 z-40">
+              <img src="https://images.unsplash.com/photo-1473625247510-8ceb1760943f?w=800&q=80" class="hero-img" />
+            </div>
+        </div>
+      </section>
+
+      <section class="mt-6">
+        <div class="mt-6">
+            <h3 class="text-sm uppercase text-gray-400">Gợi ý hành trình</h3>
+            <h2 class="text-2xl font-semibold mt-2">Điểm Đến Nổi Bật</h2>
+          </div>
+        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-start featured-grid">
+              <!-- Large card (left) -->
+              <div class="md:col-span-2">
+                <div class="featured-card featured-card-large hero-card-shadow overflow-hidden rounded-2xl">
+                  <img src="https://images.unsplash.com/photo-1505678261036-a3fcc5e884ee?w=1400&q=80" alt="Đà Lạt" class="featured-img" />
+                  <div class="featured-overlay">
+                    <div class="featured-title">Đà Lạt</div>
+                    <div class="featured-sub">Thành phố ngàn hoa với không khí se lạnh thơ mộng</div>
+                    <div class="featured-price">Từ 250.000đ</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right column stacked cards -->
+              <div>
+                <div class="featured-card featured-card-small mb-4 hero-card-shadow overflow-hidden rounded-2xl">
+                  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1000&q=80" alt="Nha Trang" class="featured-img" />
+                  <div class="featured-overlay small">
+                    <div class="featured-title">Nha Trang</div>
+                    <div class="featured-sub">Ưu đãi 20% hôm nay</div>
+                  </div>
+                </div>
+
+                <div class="featured-card featured-card-small hero-card-shadow overflow-hidden rounded-2xl">
+                  <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1000&q=80" alt="Sapa" class="featured-img" />
+                  <div class="featured-overlay small">
+                    <div class="featured-title">Sapa</div>
+                    <div class="featured-sub">Chuyến xe đêm cao cấp</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </section>
+
+      <!-- Schedule section -->
+      <section class="mt-16">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-2xl font-bold">Lịch Trình Ngoại Thành</h2>
+            <p class="text-gray-500 mt-1">Các tuyến xe kết nối từ các trung tâm thành phố lớn đến các tỉnh thành lân cận.</p>
+          </div>
+          <div class="bg-white rounded-lg p-2 shadow-sm">
+            <div class="flex gap-2">
+              <button id="filter-morning" class="px-3 py-2 rounded-lg text-sm bg-primary text-white" data-filter="morning">Sáng</button>
+              <button id="filter-noon" class="px-3 py-2 rounded-lg text-sm text-gray-600" data-filter="noon">Trưa</button>
+              <button id="filter-evening" class="px-3 py-2 rounded-lg text-sm text-gray-600" data-filter="evening">Tối</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 space-y-4">
+          <div class="bg-white rounded-xl p-6 shadow-sm flex items-center justify-between schedule-item" data-period="morning">
+            <div class="flex items-center gap-8">
+              <div class="text-center">
+                <div class="text-2xl font-bold">08:00</div>
+                <div class="text-sm text-gray-400">Sài Gòn</div>
+              </div>
+
+              <div class="h-0.5 w-36 bg-gray-200"></div>
+
+              <div>
+                <div class="text-2xl font-bold">14:30</div>
+                <div class="text-sm text-gray-400">Đà Lạt</div>
+              </div>
+            </div>
+
+            <div class="schedule-right flex items-center gap-4">
+              <div class="schedule-right-left text-left">
+                <div class="text-sm  font-bold">LOẠI XE</div>
+                <div class="text-primary font-semibold">Limousine 22 Phòng</div>
+              </div>
+              <div class="schedule-right-right text-right">
+                <div class="text-lg font-bold">350.000đ</div>
+                <div class="mt-3">
+                  <button class="px-4 py-2 rounded-lg bg-primary text-white book-btn">Đặt vé</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="bg-white rounded-xl p-6 shadow-sm flex items-center justify-between schedule-item" data-period="noon">
+            <div class="flex items-center gap-8">
+              <div class="text-center">
+                <div class="text-2xl font-bold">09:15</div>
+                <div class="text-sm text-gray-400">Hà Nội</div>
+              </div>
+
+              <div class="h-0.5 w-36 bg-gray-200"></div>
+
+              <div>
+                <div class="text-2xl font-bold">15:00</div>
+                <div class="text-sm text-gray-400">Sapa</div>
+              </div>
+            </div>
+
+            <div class="schedule-right flex items-center gap-4">
+              <div class="schedule-right-left text-left">
+                <div class="text-sm font-bold">LOẠI XE</div>
+                <div class="text-primary font-semibold">Giường nằm VIP</div>
+              </div>
+              <div class="schedule-right-right text-right">
+                <div class="text-lg font-bold">250.000đ</div>
+                <div class="mt-3">
+                  <button class="px-4 py-2 rounded-lg bg-primary text-white book-btn">Đặt vé</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      </main>
+
+      <footer class="mt-20 py-12 bg-gray-100">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+          <div>
+            <div class="text-2xl font-extrabold text-primary">VBUS</div>
+            <p class="text-gray-500 mt-3">Giải pháp di chuyển hiện đại, an toàn và bền vững cho thành phố tương lai.</p>
+
+            <div class="mt-6 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">🔔</div>
+              <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">✉️</div>
+            </div>
+          </div>
+
+          <div class="md:col-span-2 flex justify-end">
+            <div class="flex flex-col md:flex-row gap-6 text-sm text-gray-600">
+              <div class="flex flex-col">
+                <a class="hover:text-primary" href="#">Về chúng tôi</a>
+                <a class="hover:text-primary mt-2" href="#">Liên hệ</a>
+              </div>
+              <div class="flex flex-col">
+                <a class="hover:text-primary" href="#">Điều khoản sử dụng</a>
+                <a class="hover:text-primary mt-2" href="#">Chính sách bảo mật</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center text-gray-400 text-sm">© 2024 VBUS. NexRoute Indigo Professional Series.</div>
+      </footer>
+    </body>
+  </html>
