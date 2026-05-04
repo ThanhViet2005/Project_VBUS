@@ -1,4 +1,4 @@
-// File: D:\THANHVIET\CODE\SCHOOL\CDIO3_SE397N\MY_PROCJECT\PROJECT_VBUS\vbus-frontend\app\page.tsx
+// File: D:\Project_VBUS\vbus-frontend\app\page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
