@@ -4,7 +4,7 @@ import HeroSection from './nguoidung/ngoaithanh/HeroSection';
 import SearchForm from './nguoidung/ngoaithanh/SearchForm';
 import DestinationCard from './nguoidung/ngoaithanh/DestinationCard';
 import ScheduleSection from './nguoidung/ngoaithanh/ScheduleSection';
-import ChatBot from '@/components/ChatBot';
+import ChatBot from '@/components/chatbot/ChatBot';
 
 const destinations = [
   {
