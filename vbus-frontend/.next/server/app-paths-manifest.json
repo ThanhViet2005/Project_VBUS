@@ -1,5 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/auth/dang-nhap/page": "app/auth/dang-nhap/page.js",
-  "/auth/dang-ky/page": "app/auth/dang-ky/page.js"
-}
