@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
@@ -23,24 +23,22 @@ export default function HeroSection() {
             </p>
 
             <div className="flex gap-4 pt-4">
-              <button className="bg-sky-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-sky-700 transition">
+              <Link href="/nguoidung/datve" className="bg-sky-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-sky-700 transition">
                 Đặt vé ngay
-              </button>
+              </Link>
               <button className="border-2 border-sky-600 text-sky-600 px-8 py-3 rounded-lg font-semibold hover:bg-sky-50 transition">
                 Tìm hiểu thêm
               </button>
             </div>
           </div>
 
-          {/* Right Image */}
           <div className="relative">
             <div className="relative w-full h-96 bg-gradient-to-br from-blue-300 to-sky-400 rounded-3xl overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <p className="text-6xl">🚌</p>
-                  <p className="mt-4 text-lg font-semibold">Hình ảnh chuyến xe</p>
-                </div>
-              </div>
+              <img 
+                src="/Image/banner/hinhngoaithanh.png" 
+                alt="Hành trình vương tầm" 
+                className="w-full h-full object-cover"
+              />
               {/* Floating card effect */}
               <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl shadow-lg p-4 w-48">
                 <p className="text-gray-600 text-sm">Hàng ngàn hành khách tin tưởng VBUS</p>
