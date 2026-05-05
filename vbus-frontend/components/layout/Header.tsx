@@ -47,10 +47,19 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-4">
-            <button className="bg-sky-700 hover:bg-sky-800 text-white px-6 py-2 rounded-full text-sm font-medium transition-colors">
-              Đăng ký/Đăng nhập
-            </button>
+          <div className="flex items-center gap-3">
+            <Link
+              href="/auth/dang-nhap"
+              className="text-sky-700 hover:text-sky-800 font-semibold text-sm transition-colors"
+            >
+              Đăng nhập
+            </Link>
+            <Link
+              href="/auth/dang-ky"
+              className="bg-sky-700 hover:bg-sky-800 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+            >
+              Đăng ký
+            </Link>
           </div>
         </div>
       </div>
