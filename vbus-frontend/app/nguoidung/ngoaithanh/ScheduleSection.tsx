@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import Link from 'next/link';
 
 export default function ScheduleSection() {
   const rows = [
@@ -41,7 +41,7 @@ export default function ScheduleSection() {
 
                 <div className="text-right">
                   <p className="text-sm text-gray-500">{r.price}</p>
-                  <button className="ml-4 bg-sky-600 text-white px-4 py-2 rounded-lg">Đặt vé</button>
+                  <Link href="/nguoidung/datve" className="ml-4 bg-sky-600 text-white px-4 py-2 rounded-lg">Đặt vé</Link>
                 </div>
               </div>
             </div>

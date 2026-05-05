@@ -1,4 +1,7 @@
 vbus-frontend/node_modules/
 vbus-backend/node_modules/
 vbus-frontend/.next/
-
+vbus-frontend/out/
+vbus-frontend/build/
+.env*
+.DS_Store

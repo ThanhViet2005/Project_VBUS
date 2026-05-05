@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface SearchFormData {
   from: string;
@@ -10,6 +11,7 @@ interface SearchFormData {
 }
 
 export default function SearchForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState<SearchFormData>({
     from: '',
     to: '',
@@ -32,8 +34,9 @@ export default function SearchForm() {
     e.preventDefault();
     setSubmitted(true);
     console.log('Search submitted:', formData);
-    // Here you would typically navigate or make an API call
-    setTimeout(() => setSubmitted(false), 3000);
+    
+    // Navigate to trip detail page
+    router.push('/nguoidung/ngoaithanh/ctngoaithanh');
   };
 
   return (

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 interface DestinationCardProps {
   name: string;
@@ -94,13 +95,14 @@ export default function DestinationCard({
                 <p className="text-white/70 text-xs uppercase tracking-wider">Từ</p>
                 <p className="text-xl font-bold text-white">{price}</p>
               </div>
-              <button
+              <Link
+                href="/nguoidung/datve"
                 className={`bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 transform ${
                   isHovered ? 'scale-110' : 'scale-100'
                 }`}
               >
                 Đặt vé
-              </button>
+              </Link>
             </div>
           )}
         </div>
