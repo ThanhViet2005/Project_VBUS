@@ -160,6 +160,11 @@ export default function BookingPage() {
 
         <div className="bg-gray-100 rounded-3xl p-6 flex flex-col gap-4 overflow-hidden group">
           <div className="h-28 bg-gray-200 rounded-2xl overflow-hidden relative">
+             <img 
+               src="/Image/banner/datve/AB6AXuBgLv1xhYWPNoWhzgL8rIW4P4EIe1-uPmm-COjekKFQMY_vwbjCxtCQzuHxeUzdLdQlNsf0v9grCyl5PJkD2Csu87PQeoYN1vsuQ-eURzEao6lQrdhE4awZ-nDU3X3qIyEQI6ibgL_Rbv6L_yGEm8pEAch3HhLbxycJVvANu0phwHuuM-NJit1ZJmmxV3BRNHLJkRS_EMzMtu5RBXxrp-U7ukFHSnhYjXmT_hmd0-1Ac___yze8.png" 
+               alt="Limousine Navigator" 
+               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+             />
              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
           </div>
           <div>
@@ -229,8 +234,9 @@ export default function BookingPage() {
              <p className="text-[10px] font-black text-sky-400 uppercase tracking-widest">DỊCH VỤ CHUẨN 5 SAO</p>
              <h3 className="text-2xl font-black text-white mt-4">Wifi miễn phí, nước uống, khăn lạnh và cổng sạc USB tại mỗi ghế ngồi.</h3>
            </div>
-           <div className="absolute inset-0 opacity-40">
-              <div className="w-full h-full bg-gradient-to-br from-sky-600/20 to-black"></div>
+           <div className="absolute inset-0 opacity-60">
+              <img src="/Image/banner/datve/step2.png" alt="Service" className="w-full h-full object-cover" />
+              <div className="w-full h-full bg-gradient-to-br from-sky-600/10 to-black/40"></div>
            </div>
         </div>
       </div>
@@ -278,9 +284,19 @@ export default function BookingPage() {
           Tiếp tục thanh toán 
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
         </button>
-        <p className="text-[10px] text-gray-400 text-center leading-relaxed">
+        <p className="text-[10px] text-gray-400 text-center leading-relaxed mt-4">
           Bằng cách nhấn tiếp tục, bạn đồng ý với <span className="text-sky-600 underline">Điều khoản & Chính sách</span> của VBUS.
         </p>
+        <div className="bg-white rounded-3xl p-4 border border-gray-100 shadow-sm overflow-hidden group">
+           <div className="h-24 bg-gray-100 rounded-2xl overflow-hidden relative">
+              <img 
+                src="/Image/banner/datve/AB6AXuBgLv1xhYWPNoWhzgL8rIW4P4EIe1-uPmm-COjekKFQMY_vwbjCxtCQzuHxeUzdLdQlNsf0v9grCyl5PJkD2Csu87PQeoYN1vsuQ-eURzEao6lQrdhE4awZ-nDU3X3qIyEQI6ibgL_Rbv6L_yGEm8pEAch3HhLbxycJVvANu0phwHuuM-NJit1ZJmmxV3BRNHLJkRS_EMzMtu5RBXxrp-U7ukFHSnhYjXmT_hmd0-1Ac___yze8.png" 
+                alt="Promotion" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+           </div>
+           <p className="text-[10px] font-bold text-sky-700 mt-3 uppercase text-center">Ưu đãi độc quyền cho bạn</p>
+        </div>
       </div>
     </div>
   );
@@ -327,13 +343,21 @@ export default function BookingPage() {
            </div>
 
            {/* Other Methods */}
-           {['Ví điện tử MoMo / ZaloPay', 'Quét mã QR VNPAY', 'Chuyển khoản ngân hàng'].map((method, idx) => (
+           {[
+             { name: 'Ví điện tử MoMo / ZaloPay', icons: ['https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-MoMo-Square.png', 'https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay-Square.png'] },
+             { name: 'Quét mã QR VNPAY', icons: ['https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-VNPAY-QR-1.png'] },
+             { name: 'Chuyển khoản ngân hàng', icons: ['https://cdn-icons-png.flaticon.com/512/2830/2830284.png'] }
+           ].map((method, idx) => (
              <div key={idx} className="bg-gray-50 rounded-2xl p-6 border border-gray-100 flex items-center justify-between group cursor-pointer hover:bg-white hover:border-sky-200 transition-all">
                 <div className="flex items-center gap-4">
                    <div className="w-5 h-5 border-2 border-gray-200 rounded-full bg-white"></div>
-                   <span className="font-bold text-gray-600 group-hover:text-gray-800">{method}</span>
+                   <span className="font-bold text-gray-600 group-hover:text-gray-800">{method.name}</span>
                 </div>
-                <div className="w-8 h-8 bg-white rounded-lg border border-gray-100"></div>
+                <div className="flex items-center gap-2">
+                  {method.icons.map((icon, i) => (
+                    <img key={i} src={icon} alt="Payment Icon" className="w-8 h-8 object-contain bg-white rounded-md p-1 border border-gray-100" />
+                  ))}
+                </div>
              </div>
            ))}
         </div>
@@ -394,15 +418,25 @@ export default function BookingPage() {
           Thanh toán ngay
         </button>
 
-        <div className="flex justify-center gap-6 pt-2">
-           {['PCI DSS', 'SSL SECURE', 'RELIABLE'].map((item) => (
-             <div key={item} className="flex flex-col items-center gap-1">
-                <div className="w-5 h-5 text-gray-300">
-                   <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z"/></svg>
-                </div>
-                <span className="text-[8px] font-bold text-gray-400">{item}</span>
-             </div>
-           ))}
+        <div className="flex justify-center gap-6 pt-4">
+           <div className="flex flex-col items-center gap-1">
+              <div className="w-5 h-5 text-gray-300">
+                 <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L5,12L6.41,10.59L10,14.17L17.59,6.58L19,8L10,17Z"/></svg>
+              </div>
+              <span className="text-[8px] font-bold text-gray-400">PCI DSS</span>
+           </div>
+           <div className="flex flex-col items-center gap-1">
+              <div className="w-5 h-5 text-gray-300">
+                 <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.1,7 14,7.9 14,9V10H15V15H9V10H10V9C10,7.9 10.9,7 12,7M12,8C11.45,8 11,8.45 11,9V10H13V9C13,8.45 12.55,8 12,8Z"/></svg>
+              </div>
+              <span className="text-[8px] font-bold text-gray-400">SSL SECURE</span>
+           </div>
+           <div className="flex flex-col items-center gap-1">
+              <div className="w-5 h-5 text-gray-300">
+                 <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23,10C23,8.89 22.1,8 21,8H14.68L15.64,3.43C15.66,3.33 15.67,3.22 15.67,3.11C15.67,2.7 15.5,2.32 15.23,2.05L14.17,1L7.59,7.58C7.22,7.95 7,8.45 7,9V19A2,2 0 0,0 9,21H18C18.83,21 19.54,20.5 19.84,19.78L22.86,12.73C22.95,12.5 23,12.26 23,12V10M1,21H5V9H1V21Z"/></svg>
+              </div>
+              <span className="text-[8px] font-bold text-gray-400">RELIABLE</span>
+           </div>
         </div>
       </div>
     </div>
@@ -486,15 +520,8 @@ export default function BookingPage() {
               </div>
 
               <div className="bg-gray-900 aspect-square rounded-3xl p-8 mb-10 flex items-center justify-center">
-                 <div className="w-full h-full bg-white rounded-xl flex items-center justify-center">
-                    <div className="w-3/4 h-3/4 border-4 border-gray-900 relative">
-                       {/* Mock QR content */}
-                       <div className="absolute inset-2 grid grid-cols-4 grid-rows-4 gap-1">
-                          {Array.from({length: 16}).map((_, i) => (
-                            <div key={i} className={`rounded-sm ${Math.random() > 0.5 ? 'bg-gray-900' : 'bg-transparent'}`}></div>
-                          ))}
-                       </div>
-                    </div>
+                 <div className="w-full h-full bg-white rounded-xl flex items-center justify-center p-4">
+                    <img src="/Image/banner/datve/Qrdatvethanhvong.jpg" alt="QR Code" className="w-full h-full object-contain" />
                  </div>
               </div>
 

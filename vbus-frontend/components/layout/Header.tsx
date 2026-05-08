@@ -9,18 +9,20 @@ export default function Header() {
   const navLinks = [
     { href: '/', label: 'Tuyến ngoại thành' },
     { href: '/nguoidung/noi-thanh', label: 'Tuyến nội thành' },
-    { href: '/nguoidung/tra-cuu-ve', label: 'Tra cứu vé' },
-    { href: '/nguoidung/chinh-sach', label: 'Chính sách & Ưu đãi' },
-    { href: '/nguoidung/danh-gia', label: 'Đánh giá' },
+    { href: '/nguoidung/tracuuve', label: 'Tra cứu vé' },
+    { href: '/nguoidung/chinhsachuudai', label: 'Chính sách & Ưu đãi' },
+    { href: '/nguoidung/danhgia', label: 'Đánh giá' },
   ];
 
   const isActive = (path: string) => {
     if (path === '/') {
       return pathname === '/' || 
              pathname.startsWith('/nguoidung/ngoaithanh') || 
-             pathname.startsWith('/nguoidung/datve');
+             pathname.startsWith('/nguoidung/datve') ||
+             pathname.startsWith('/nguoidung/huyve');
     }
-    return pathname.startsWith(path);
+    // Matches the path or any sub-path (e.g. /nguoidung/tracuuve/chi-tiet)
+    return pathname === path || pathname.startsWith(path + '/');
   };
 
   return (

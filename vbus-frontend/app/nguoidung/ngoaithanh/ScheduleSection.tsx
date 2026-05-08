@@ -39,9 +39,9 @@ export default function ScheduleSection() {
                   <p className="text-blue-600 font-semibold">Limousine 22 Phòng</p>
                 </div>
 
-                <div className="text-right">
-                  <p className="text-sm text-gray-500">{r.price}</p>
-                  <Link href="/nguoidung/datve" className="ml-4 bg-sky-600 text-white px-4 py-2 rounded-lg">Đặt vé</Link>
+                <div className="text-right flex flex-col items-end gap-1">
+                  <p className="text-sm text-gray-500 font-bold">{r.price}</p>
+                  <Link href="/nguoidung/datve" className="bg-sky-600 text-white px-6 py-2 rounded-lg hover:bg-sky-700 transition-colors whitespace-nowrap">Đặt vé</Link>
                 </div>
               </div>
             </div>

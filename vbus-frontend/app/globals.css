@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 /* Global styles for the Next app */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}

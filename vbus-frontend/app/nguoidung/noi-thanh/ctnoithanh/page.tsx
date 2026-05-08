@@ -84,20 +84,65 @@ export default function RouteDetailPage() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-16">
           {/* Visual Placeholder (Image/Map) */}
           <div className="lg:col-span-3 relative">
-            <div className="bg-gray-200 w-full lg:h-full min-h-[550px] rounded-[32px] overflow-hidden border border-gray-100 shadow-lg group">
-              {/* This is the placeholder for the map image */}
-              <div className="w-full h-full flex items-center justify-center bg-sky-50/50">
-                <p className="text-sky-300 font-bold uppercase tracking-widest text-sm">Bản đồ lộ trình chi tiết</p>
+            <div className="bg-gray-200 w-full lg:h-full min-h-[550px] rounded-[32px] overflow-hidden border border-gray-100 shadow-lg relative group">
+              {/* Map Background - Using the specific Google Maps image */}
+              <img 
+                src="/Image/banner/noithanh/googlemaps-bnews-vn-20240313162046.png" 
+                alt="Google Maps Route" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              
+              {/* Overlay elements to make it feel like an active transit app */}
+              <div className="absolute inset-0 bg-black/5 pointer-events-none"></div>
+
+              {/* Live Bus Markers (Simplified to sit on the Google Map) */}
+              <div className="absolute top-[30%] left-[45%] animate-bounce">
+                <div className="bg-white p-1 rounded-lg shadow-xl border-2 border-sky-600">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth="2.5">
+                    <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h10c0 1.1.9 2 2 2s2-.9 2-2Z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>
+                  </svg>
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+                </div>
+              </div>
+
+              <div className="absolute top-[60%] left-[70%] animate-pulse">
+                <div className="bg-white p-1 rounded-lg shadow-xl border-2 border-sky-600">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0284c7" strokeWidth="2.5">
+                    <path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-1.1 0-2 .9-2 2v7c0 1.1.9 2 2 2h10c0 1.1.9 2 2 2s2-.9 2-2Z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>
+                  </svg>
+                </div>
+              </div>
+
+              {/* Floating Real-time Badge */}
+              <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md p-4 rounded-[24px] shadow-2xl border border-white/50">
+                <div className="flex items-center gap-4">
+                  <div className="relative">
+                    <div className="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center">
+                      <div className="w-3 h-3 bg-green-500 rounded-full animate-ping absolute"></div>
+                      <div className="w-3 h-3 bg-green-500 rounded-full relative"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-xs font-black text-[#1E293B] uppercase tracking-wider">Trực tuyến (Real-time)</p>
+                    <p className="text-[10px] text-gray-400 font-medium mt-0.5">12 xe đang di chuyển trên Google Maps</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map Controls (Styled like Google Maps) */}
+              <div className="absolute bottom-10 right-6 flex flex-col gap-2">
+                <button className="w-10 h-10 bg-white rounded-md shadow-lg flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-all border border-gray-100">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <button className="w-10 h-10 bg-white rounded-md shadow-lg flex items-center justify-center text-gray-600 hover:bg-gray-50 transition-all border border-gray-100">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
               </div>
               
-              {/* Floating Real-time Badge */}
-              <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md p-3 rounded-2xl shadow-xl border border-white/50">
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                  <div>
-                    <p className="text-[10px] font-black text-gray-800 uppercase leading-none">Trực tuyến (Real-time)</p>
-                    <p className="text-[9px] text-gray-400 font-medium mt-1">Hiện có 12 xe đang hoạt động</p>
-                  </div>
+              <div className="absolute bottom-6 left-6">
+                <div className="bg-white/90 px-4 py-2 rounded-xl shadow-lg border border-white/50 flex items-center gap-2">
+                   <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
+                   <span className="text-[10px] font-bold text-gray-700 uppercase tracking-widest">Lộ trình Tuyến 150</span>
                 </div>
               </div>
             </div>

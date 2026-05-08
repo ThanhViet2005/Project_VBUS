@@ -61,14 +61,7 @@ export default function DestinationCard({
         {/* Pin marker */}
         <div className="absolute top-4 right-4 flex items-center justify-center w-8 h-8 rounded-full bg-pink-400 text-white shadow-lg">{icon}</div>
 
-        {/* Featured decorative badges */}
-        {featured && (
-          <>
-            <div className="absolute bottom-6 left-6 bg-pink-400 text-white px-2 py-1 rounded-md text-xs font-semibold">15</div>
-            <div className="absolute bottom-6 right-20 bg-pink-400 text-white px-2 py-1 rounded-md text-xs font-semibold">16</div>
-            <div className="absolute right-6 top-20 bg-pink-400 text-white px-2 py-1 rounded-md text-xs font-semibold">14</div>
-          </>
-        )}
+
       </div>
 
       {/* Content Overlay */}
