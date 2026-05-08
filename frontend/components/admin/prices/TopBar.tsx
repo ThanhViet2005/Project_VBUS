@@ -23,10 +23,12 @@ export default function TopBar() {
             <p className="text-xs text-gray-400">MASTER CONTROL</p>
           </div>
 
-          <img
-            src="https://i.pravatar.cc/40"
-            className="w-10 h-10 rounded-full"
-          />
+          <a href="#">
+            <img
+              src="@/public/avatarAdmin/avaAdmin_01.png"
+              className="w-10 h-10 rounded-full"
+            />
+          </a>
         </div>
       </div>
     </div>

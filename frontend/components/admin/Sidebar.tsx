@@ -25,11 +25,11 @@ const menuItems = [
     href: "/admin",
     icon: LayoutDashboard,
   },
-  {
-    title: "Quản lý chuyến cá nhân",
-    href: "/admin/chuyen-ca-nhan",
-    icon: Route,
-  },
+  // {
+  //   title: "Quản lý chuyến cá nhân",
+  //   href: "/admin/chuyen-ca-nhan",
+  //   icon: Route,
+  // },
   {
     title: "Quản lý hệ thống & người dùng",
     href: "/admin/users",
@@ -47,7 +47,7 @@ const menuItems = [
   },
   {
     title: "Quản lý chuyến xe",
-    href: "/admin/chuyenxe",
+    href: "/admin/dashboard/trips",
     icon: Map,
   },
   {
@@ -57,7 +57,7 @@ const menuItems = [
   },
   {
     title: "Quản lý giá vé",
-    href: "/admin/giave",
+    href: "/admin/dashboard/prices",
     icon: WalletCards,
   },
   {
