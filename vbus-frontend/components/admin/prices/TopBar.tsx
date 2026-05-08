@@ -26,6 +26,7 @@ export default function TopBar() {
           <a href="#">
             <img
               src="@/public/avatarAdmin/avaAdmin_01.png"
+              alt="Admin Profile"
               className="w-10 h-10 rounded-full"
             />
           </a>
