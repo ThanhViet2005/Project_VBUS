@@ -1,0 +1,48 @@
+import { Trip } from "@/types/trips";
+
+export const trips: Trip[] = [
+  {
+    id: 1,
+    code: "#VB-9912",
+    from: "Hà Nội",
+    to: "Hải Phòng",
+    road: "Cao tốc 5B",
+    time: "14:30, 24/05",
+    plate: "29B-123.45",
+    driver: "Nguyễn Văn A",
+    status: "Sắp tới",
+  },
+  {
+    id: 2,
+    code: "#VB-8845",
+    from: "Hà Nội",
+    to: "Quảng Ninh",
+    road: "Quốc lộ 18",
+    time: "08:00, 24/05",
+    plate: "14B-678.90",
+    driver: "Trần Văn B",
+    status: "Đang chạy",
+  },
+  {
+    id: 3,
+    code: "#VB-7712",
+    from: "Sài Gòn",
+    to: "Đà Lạt",
+    road: "Đèo Bảo Lộc",
+    time: "06:00, 24/05",
+    plate: "51B-001.23",
+    driver: "Phạm Văn C",
+    status: "Hoàn thành",
+  },
+  {
+    id: 4,
+    code: "#VB-6623",
+    from: "Đà Nẵng",
+    to: "Huế",
+    road: "Hầm Hải Vân",
+    time: "16:00, 24/05",
+    plate: "43B-999.99",
+    driver: "Lê Văn D",
+    status: "Sắp tới",
+  },
+];
