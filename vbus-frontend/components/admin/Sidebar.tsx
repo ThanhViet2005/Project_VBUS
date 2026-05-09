@@ -47,7 +47,7 @@ const menuItems = [
   },
   {
     title: "Quản lý chuyến xe",
-    href: "/admin/dashboard/trips",
+    href: "/admin/dashboard/trip",
     icon: Map,
   },
   {
@@ -57,12 +57,12 @@ const menuItems = [
   },
   {
     title: "Quản lý giá vé",
-    href: "/admin/dashboard/prices",
+    href: "/admin/dashboard/price",
     icon: WalletCards,
   },
   {
     title: "Quản lý ưu đãi",
-    href: "/admin/uudai",
+    href: "/admin/dashboard/promotion",
     icon: Tag,
   },
   {
@@ -126,8 +126,9 @@ export default function Sidebar() {
 
       {/* Logout */}
       <div className="p-3 border-t border-cyan-900/20">
-        <button
-          className="
+        <a href="/auth/dang-nhap">
+          <button
+            className="
             w-full flex items-center gap-3
             px-4 py-3 rounded-xl
             text-slate-400
@@ -135,10 +136,11 @@ export default function Sidebar() {
             hover:text-red-400
             transition-all duration-200
           "
-        >
-          <LogOut size={18} />
-          <span className="text-[15px] font-medium">Đăng xuất</span>
-        </button>
+          >
+            <LogOut size={18} />
+            <span className="text-[15px] font-medium">Đăng xuất</span>
+          </button>
+        </a>
       </div>
     </aside>
   );

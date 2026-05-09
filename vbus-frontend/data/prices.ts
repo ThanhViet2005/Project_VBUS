@@ -1,4 +1,4 @@
-import { PriceRoute } from "../../frontend/types/prices";
+import { PriceRoute } from "@/types/prices";
 
 export const priceRoutes: PriceRoute[] = [
   {
