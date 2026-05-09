@@ -1,45 +1,71 @@
-import { Promotion } from "@/types/promotions";
+"use client";
 
-export const PromotionCard = ({ promo }: { promo: Promotion }) => {
-  const progress = (promo.usageCount / promo.maxUsage) * 100;
+type Props = {
+  code: string;
+  discount: string;
+  expired: string;
+  used: number;
+  total: number;
+};
 
+export default function PromotionCard({
+  code,
+  discount,
+  expired,
+  used,
+  total,
+}: Props) {
   return (
-    <div className="bg-[#1a1f2e] p-6 rounded-2xl border border-slate-800 flex flex-col gap-4">
-      <div className="flex justify-between items-start">
-        <span className="text-[10px] bg-slate-800 px-2 py-1 rounded uppercase tracking-wider">
-          {promo.label}
-        </span>
-        <div className="p-2 bg-teal-500/10 rounded-lg text-teal-500">
-          {/* Icon placeholder */}
+    <div
+      className="
+      bg-[#081028]
+      border border-cyan-500/10
+      rounded-3xl
+      p-5
+      hover:border-cyan-400/30
+      transition-all duration-300
+    "
+    >
+      <div className="flex items-center justify-between">
+        <span className="text-xs text-cyan-400 uppercase">Mã giảm giá</span>
+
+        <div className="w-10 h-10 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+          🎁
         </div>
       </div>
 
-      <h2 className="text-2xl font-bold tracking-tight">{promo.code}</h2>
+      <h2 className="text-2xl font-bold text-white mt-4">{code}</h2>
 
-      <div className="flex justify-between items-center">
-        <span className="text-slate-400 text-sm">Số tiền giảm</span>
-        <span className="text-2xl font-bold text-teal-400">
-          {promo.discountValue}
-        </span>
-      </div>
+      <p className="text-cyan-400 text-3xl font-bold mt-4">{discount}</p>
 
-      <div className="space-y-2">
-        <div className="flex justify-between text-xs text-slate-400">
-          <span>
-            Đã dùng: {promo.usageCount} / {promo.maxUsage}
+      <div className="mt-5 space-y-2 text-sm">
+        <div className="flex justify-between">
+          <span className="text-slate-400">Hạn dùng</span>
+          <span className="text-white">{expired}</span>
+        </div>
+
+        <div className="flex justify-between">
+          <span className="text-slate-400">Đã dùng</span>
+          <span className="text-white">
+            {used}/{total}
           </span>
         </div>
-        <div className="w-full bg-slate-800 h-1.5 rounded-full">
-          <div
-            className="bg-teal-500 h-full rounded-full"
-            style={{ width: `${progress}%` }}
-          />
-        </div>
       </div>
 
-      <button className="w-full mt-2 py-2 text-sm border border-slate-700 rounded-lg hover:bg-slate-800 transition">
-        Edit Quản lý chi tiết
+      <button
+        className="
+        mt-6 w-full
+        bg-cyan-500/10
+        hover:bg-cyan-500/20
+        border border-cyan-500/20
+        rounded-xl
+        py-3
+        text-cyan-400
+        transition-all
+      "
+      >
+        Quản lý chi tiết
       </button>
     </div>
   );
-};
+}

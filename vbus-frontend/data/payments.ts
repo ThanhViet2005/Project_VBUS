@@ -1,0 +1,48 @@
+import { Payment } from "@/types/payments";
+
+export const payments: Payment[] = [
+  {
+    id: 1,
+    code: "#VBUS-98210",
+    customer: "Nguyễn Huy",
+    email: "huy.nguyen@example.com",
+    method: "Ví MoMo",
+    amount: "450.000 VND",
+    time: "Hôm nay 14:22:10",
+    status: "Thành công",
+    initials: "NH",
+  },
+  {
+    id: 2,
+    code: "#VBUS-98209",
+    customer: "Trần Lan",
+    email: "lan.tran@email.vn",
+    method: "Visa **** 4492",
+    amount: "1.250.000 VND",
+    time: "Hôm nay 13:05:44",
+    status: "Đang xử lý",
+    initials: "TL",
+  },
+  {
+    id: 3,
+    code: "#VBUS-98208",
+    customer: "Phan Minh",
+    email: "minh.phan@vbus.vn",
+    method: "Tiền mặt",
+    amount: "250.000 VND",
+    time: "22 Th05, 2024",
+    status: "Thành công",
+    initials: "PM",
+  },
+  {
+    id: 4,
+    code: "#VBUS-98207",
+    customer: "Lê Văn",
+    email: "vanle@hotmail.com",
+    method: "Ví MoMo",
+    amount: "600.000 VND",
+    time: "22 Th05, 2024",
+    status: "Thất bại",
+    initials: "LV",
+  },
+];
