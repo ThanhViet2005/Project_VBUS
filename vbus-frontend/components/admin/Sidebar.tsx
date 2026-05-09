@@ -52,7 +52,7 @@ const menuItems = [
   },
   {
     title: "Quản lý đặt xe",
-    href: "/admin/datxe",
+    href: "/admin/dashboard/booking",
     icon: ClipboardList,
   },
   {
@@ -67,17 +67,17 @@ const menuItems = [
   },
   {
     title: "Quản lý thanh toán",
-    href: "/admin/thanhtoan",
+    href: "/admin/dashboard/payment",
     icon: CreditCard,
   },
   {
     title: "Thống kê & báo cáo",
-    href: "/admin/thongke",
+    href: "/admin/dashboard/statistic",
     icon: BarChart3,
   },
   {
     title: "Hỗ trợ khách hàng",
-    href: "/admin/hotro",
+    href: "/admin/dashboard/support",
     icon: Headphones,
   },
 ];
