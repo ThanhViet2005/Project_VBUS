@@ -1,10 +1,48 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import AuthLayout from '@/components/auth/AuthLayout';
 import AuthInput from '@/components/auth/AuthInput';
+import { apiFetch } from '@/lib/api-client';
 
 export default function LoginPage() {
+    const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const handleLogin = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsLoading(true);
+        setError(null);
+
+        try {
+            const data = await apiFetch('/auth/login', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+            });
+
+            // Save token (using localStorage for simplicity, though cookies are better for CSRF)
+            localStorage.setItem('token', data.access_token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+
+            // Redirect based on role or home
+            if (data.user.role === 'ADMIN') {
+                router.push('/admin');
+            } else {
+                router.push('/');
+            }
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <AuthLayout
             title="Chào mừng trở lại"
@@ -13,6 +51,13 @@ export default function LoginPage() {
             leftDescription="Trải nghiệm nền tảng đặt vé xe khách hiện đại hàng đầu Việt Nam. Nhanh chóng, an toàn và luôn minh bạch."
             imageSrc="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2000&auto=format&fit=crop"
         >
+            {/* Error Message */}
+            {error && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-100 text-red-600 text-sm rounded-xl font-medium animate-shake">
+                    {error}
+                </div>
+            )}
+
             {/* Social Login */}
             <button className="w-full flex items-center justify-center gap-3 bg-gray-50 hover:bg-gray-100 border border-gray-200 py-3 rounded-xl lg:rounded-2xl font-semibold text-gray-700 transition-all mb-6 lg:mb-8 text-sm lg:text-base">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
@@ -31,11 +76,14 @@ export default function LoginPage() {
             </div>
 
             {/* Form */}
-            <form onSubmit={(e) => e.preventDefault()}>
+            <form onSubmit={handleLogin}>
                 <AuthInput
                     label="Email hoặc Số điện thoại"
                     placeholder="username@example.com"
                     type="text"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     icon={
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
@@ -47,6 +95,9 @@ export default function LoginPage() {
                     label="Mật khẩu"
                     placeholder="••••••••"
                     type="password"
+                    required
+                    value={formData.password}
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     rightElement={
                         <Link href="#" className="text-xs font-bold text-blue-600 hover:text-blue-700">Quên mật khẩu?</Link>
                     }
@@ -62,8 +113,12 @@ export default function LoginPage() {
                     <label htmlFor="remember" className="text-sm text-gray-500">Ghi nhớ đăng nhập</label>
                 </div>
 
-                <button className="w-full bg-[#006399] hover:bg-[#004e7a] text-white font-bold py-3 lg:py-4 rounded-xl lg:rounded-2xl shadow-lg shadow-blue-200 transition-all active:scale-[0.98] mb-6 lg:mb-8 text-sm lg:text-base">
-                    Đăng nhập
+                <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-[#006399] hover:bg-[#004e7a] text-white font-bold py-3 lg:py-4 rounded-xl lg:rounded-2xl shadow-lg shadow-blue-200 transition-all active:scale-[0.98] mb-6 lg:mb-8 text-sm lg:text-base disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                    {isLoading ? 'Đang xử lý...' : 'Đăng nhập'}
                 </button>
             </form>
 
@@ -73,3 +128,4 @@ export default function LoginPage() {
         </AuthLayout>
     );
 }
+

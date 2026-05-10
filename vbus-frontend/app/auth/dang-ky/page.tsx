@@ -1,10 +1,57 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import AuthLayout from '@/components/auth/AuthLayout';
 import AuthInput from '@/components/auth/AuthInput';
+import { apiFetch } from '@/lib/api-client';
 
 export default function RegisterPage() {
+    const router = useRouter();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+    const [successMessage, setSuccessMessage] = useState<string | null>(null);
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        phone: '',
+        password: '',
+        confirmPassword: ''
+    });
+
+    const handleRegister = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsLoading(true);
+        setError(null);
+
+        if (formData.password !== formData.confirmPassword) {
+            setError('Mật khẩu xác nhận không khớp');
+            setIsLoading(false);
+            return;
+        }
+
+        try {
+            await apiFetch('/auth/register', {
+                method: 'POST',
+                body: JSON.stringify({
+                    fullName: formData.fullName,
+                    email: formData.email,
+                    phone: formData.phone,
+                    password: formData.password
+                }),
+            });
+
+            setSuccessMessage('Đăng ký thành công! Đang chuyển hướng...');
+            setTimeout(() => {
+                router.push('/auth/dang-nhap');
+            }, 2000);
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <AuthLayout
             title="Tạo tài khoản mới"
@@ -13,11 +60,26 @@ export default function RegisterPage() {
             leftDescription="Tham gia cộng đồng VBUS để trải nghiệm dịch vụ di chuyển cao cấp, tiện lợi và hiện đại nhất Việt Nam."
             imageSrc="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2000&auto=format&fit=crop"
         >
-            <form onSubmit={(e) => e.preventDefault()}>
+            {/* Status Messages */}
+            {error && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-100 text-red-600 text-sm rounded-xl font-medium">
+                    {error}
+                </div>
+            )}
+            {successMessage && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-100 text-green-600 text-sm rounded-xl font-medium">
+                    {successMessage}
+                </div>
+            )}
+
+            <form onSubmit={handleRegister}>
                 <AuthInput
                     label="Họ và tên"
                     placeholder="Nguyễn Văn A"
                     type="text"
+                    required
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                     icon={
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -30,6 +92,9 @@ export default function RegisterPage() {
                         label="Email"
                         placeholder="example@gmail.com"
                         type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         icon={
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -40,6 +105,8 @@ export default function RegisterPage() {
                         label="Số điện thoại"
                         placeholder="090 123 4567"
                         type="tel"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         icon={
                             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -52,6 +119,9 @@ export default function RegisterPage() {
                     label="Mật khẩu"
                     placeholder="••••••••"
                     type="password"
+                    required
+                    value={formData.password}
+                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                     icon={
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -63,6 +133,9 @@ export default function RegisterPage() {
                     label="Xác nhận mật khẩu"
                     placeholder="••••••••"
                     type="password"
+                    required
+                    value={formData.confirmPassword}
+                    onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
                     icon={
                         <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -70,8 +143,12 @@ export default function RegisterPage() {
                     }
                 />
 
-                <button className="w-full bg-[#006399] hover:bg-[#004e7a] text-white font-bold py-3 lg:py-4 rounded-xl lg:rounded-2xl shadow-lg shadow-blue-200 transition-all active:scale-[0.98] mt-2 lg:mt-4 mb-4 lg:mb-6 text-sm lg:text-base">
-                    Đăng ký tài khoản
+                <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full bg-[#006399] hover:bg-[#004e7a] text-white font-bold py-3 lg:py-4 rounded-xl lg:rounded-2xl shadow-lg shadow-blue-200 transition-all active:scale-[0.98] mt-2 lg:mt-4 mb-4 lg:mb-6 text-sm lg:text-base disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                    {isLoading ? 'Đang đăng ký...' : 'Đăng ký tài khoản'}
                 </button>
             </form>
 
@@ -98,3 +175,4 @@ export default function RegisterPage() {
         </AuthLayout>
     );
 }
+
