@@ -1,17 +1,20 @@
+"use client";
+
+import { useState } from "react";
+
 import TopBar from "@/components/admin/trips/TopBar";
-import TripHero from "@/components/admin/trips/TripHero";
 import TripStats from "@/components/admin/trips/TripStats";
 import TripFilters from "@/components/admin/trips/TripFilters";
-import TripTable from "@/components/admin/trips/TripTable";
+import TripManagement from "@/components/admin/trips/TripManagement";
 
 export default function TripsPage() {
+  const [search, setSearch] = useState("");
+
   return (
     <div className="bg-[#081120] min-h-screen text-white">
-      <TopBar />
+      <TopBar search={search} setSearch={setSearch} />
 
       <div className="p-8">
-        <TripHero />
-
         <div className="grid grid-cols-[1fr_1fr_2fr] gap-5 mb-8">
           <TripStats title="Tổng chuyến hôm nay" value="142" sub="↗ +12%" />
 
@@ -25,7 +28,7 @@ export default function TripsPage() {
           <TripFilters />
         </div>
 
-        <TripTable />
+        <TripManagement search={search} />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-export type PromotionStatus = "active" | "expiring" | "expired";
+export type PromotionStatus = "Hoạt động" | "Sắp hết hạn" | "Hết hạn";
 
 export interface Promotion {
   id: string;
@@ -8,7 +8,9 @@ export interface Promotion {
   expiryDate: string;
   usageCount: number;
   maxUsage: number;
-  type: "percentage" | "fixed";
+  type: string;
+  value: string;
+  status: PromotionStatus;
   colorTheme: string; // Dùng để map màu sắc CSS
 }
 

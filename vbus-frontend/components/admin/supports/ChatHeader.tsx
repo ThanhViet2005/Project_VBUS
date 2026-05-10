@@ -9,7 +9,7 @@ export default function ChatHeader() {
         </div>
 
         <div>
-          <h3 className="font-semibold text-lg">Nguyễn Thành</h3>
+          <h3 className="font-semibold text-lg">Phú Nguyễn</h3>
 
           <p className="text-sm text-gray-500">ID khách hàng: #44921</p>
         </div>

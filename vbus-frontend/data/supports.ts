@@ -1,7 +1,7 @@
 export const conversations = [
   {
     id: 1,
-    name: "Nguyen Thanh",
+    name: "Phú Nguyễn",
     message: "I want to reschedule my ticket from Hanoi to Da Nang.",
     time: "2 min",
     active: true,
@@ -9,7 +9,7 @@ export const conversations = [
 
   {
     id: 2,
-    name: "Le Hoang",
+    name: "Đỗ Tiên",
     message: "Thank you for the quick support!",
     time: "15 min",
   },
@@ -23,7 +23,7 @@ export const conversations = [
 
   {
     id: 4,
-    name: "Tran Thao",
+    name: "Phú Trọng",
     message: "Payment failed but money was deducted.",
     time: "3h",
   },

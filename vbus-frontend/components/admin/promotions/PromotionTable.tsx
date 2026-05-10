@@ -1,20 +1,5 @@
 "use client";
-
-const data = [
-  {
-    code: "SUMMER24",
-    type: "Phần trăm",
-    value: "20%",
-    status: "Hoạt động",
-  },
-  {
-    code: "WELCOME50",
-    type: "Tiền mặt",
-    value: "50K",
-    status: "Hoạt động",
-  },
-];
-
+import { promotions } from "@/data/promotions";
 export default function PromotionTable() {
   return (
     <div
@@ -36,7 +21,7 @@ export default function PromotionTable() {
         </thead>
 
         <tbody>
-          {data.map((item, index) => (
+          {promotions.map((item, index) => (
             <tr key={index} className="border-t border-cyan-500/10">
               <td className="p-4 text-white">{item.code}</td>
               <td className="p-4 text-slate-300">{item.type}</td>

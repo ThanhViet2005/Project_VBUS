@@ -10,7 +10,7 @@ export default function CustomerInfo() {
           NT
         </div>
 
-        <h2 className="text-3xl font-semibold mb-2">Nguyễn Thành</h2>
+        <h2 className="text-3xl font-semibold mb-2">Phú Nguyễn</h2>
 
         <p className="text-gray-500">Hà Nội, Việt Nam</p>
       </div>
