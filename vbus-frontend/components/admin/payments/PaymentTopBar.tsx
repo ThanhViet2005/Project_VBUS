@@ -30,7 +30,7 @@ export default function PaymentTopBar() {
           </div>
 
           <img
-            src="https://i.pravatar.cc/100"
+            src="/avatarAdmin/avaAdmin_01.png"
             className="w-12 h-12 rounded-full border-2 border-cyan-400"
           />
         </div>
