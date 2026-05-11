@@ -1,17 +1,11 @@
-import Header from "@/components/admin/prices/Header";
 import PriceTable from "@/components/admin/prices/PriceTable";
 import SeasonalChart from "@/components/admin/prices/SeasonalChart";
 import StatsCard from "@/components/admin/prices/StatsCard";
 import TipsCard from "@/components/admin/prices/TipsCard";
-import TopBar from "@/components/admin/prices/TopBar";
 
 export default function PricesPage() {
   return (
     <div className="bg-[#081120] min-h-screen text-white p-8">
-      <TopBar />
-
-      <Header />
-
       <div className="grid grid-cols-4 gap-5">
         <StatsCard
           title="Giá Vé TB"
