@@ -1,62 +1,41 @@
-import { PrismaClient } from '@prisma/client';
-import * as bcrypt from 'bcrypt';
+import "dotenv/config";
 
-const prisma = new PrismaClient();
+import { PrismaClient } from "../generated/prisma/client";
+import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
 
+import * as bcrypt from "bcrypt";
+
+const adapter = new PrismaBetterSqlite3({
+  url: process.env.DATABASE_URL!,
+});
+
+const prisma = new PrismaClient({
+  adapter,
+});
 async function main() {
-    const adminPassword = await bcrypt.hash('admin123', 10);
-    const userPassword = await bcrypt.hash('user123', 10);
+  const adminPassword = await bcrypt.hash("admin123", 10);
 
-    // Create Admin
-    const admin = await prisma.user.upsert({
-        where: { email: 'admin@vbus.com' },
-        update: {},
-        create: {
-            email: 'admin@vbus.com',
-            fullName: 'VBUS Administrator',
-            password: adminPassword,
-            role: 'ADMIN',
-            status: 'ACTIVE',
-            phone: '0901112222'
-        },
-    });
+  const admin = await prisma.user.upsert({
+    where: { email: "admin@vbus.com" },
+    update: {},
+    create: {
+      email: "admin@vbus.com",
+      fullName: "VBUS Administrator",
+      password: adminPassword,
+      role: "ADMIN",
+      status: "ACTIVE",
+      phone: "0901112222",
+    },
+  });
 
-    // Create another Admin
-    const admin2 = await prisma.user.upsert({
-        where: { email: 'thanhviet@vbus.com' },
-        update: {},
-        create: {
-            email: 'thanhviet@vbus.com',
-            fullName: 'Thanh Việt',
-            password: adminPassword,
-            role: 'ADMIN',
-            status: 'ACTIVE',
-            phone: '0903334444'
-        },
-    });
-
-    // Create a regular user
-    const user = await prisma.user.upsert({
-        where: { email: 'user@vbus.com' },
-        update: {},
-        create: {
-            email: 'user@vbus.com',
-            fullName: 'Nguyễn Văn A',
-            password: userPassword,
-            role: 'USER',
-            status: 'ACTIVE',
-            phone: '0905556666'
-        },
-    });
-
-    console.log({ admin, admin2, user });
+  console.log(admin);
 }
 
 main()
-    .catch((e) => {
-        console.error(e);
-        process.exit(1);
-    })
-    .finally(async () => {
-        await prisma.$disconnect();
-    });
+  .catch((e) => {
+    console.error(e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });
