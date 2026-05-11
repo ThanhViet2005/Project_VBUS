@@ -9,7 +9,7 @@ import {
   Users,
   Bus,
   UserCheck,
-  Map,
+  Map as MapIcon,
   ClipboardList,
   WalletCards,
   Tag,
@@ -32,23 +32,23 @@ const menuItems = [
   // },
   {
     title: "Quản lý hệ thống & người dùng",
-    href: "/admin/users",
+    href: "/admin/quanlyhethongvanguoidung",
     icon: Users,
   },
   {
     title: "Quản lý xe",
-    href: "/admin/xe",
+    href: "/admin/quanlyxe",
     icon: Bus,
   },
   {
     title: "Quản lý tài xế",
-    href: "/admin/taixe",
+    href: "/admin/quanlytaixe",
     icon: UserCheck,
   },
   {
     title: "Quản lý chuyến xe",
     href: "/admin/dashboard/trip",
-    icon: Map,
+    icon: MapIcon,
   },
   {
     title: "Quản lý đặt xe",
