@@ -10,7 +10,7 @@ datasource db {
 
   // DATABASE_URL="file:./dev.db"
 
-  // url      = "file:dev.db"
+  url      = "file:dev.db"
 }
 
 
